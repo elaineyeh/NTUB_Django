@@ -21,5 +21,5 @@ from .view import hi, r
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hi/<int:n1>/<int:n2>/', hi),
-    path('h/<int:start>/<int:stop>/', r)
+    path('h/<int:start>/<int:stop>/<int:n>/', r)
 ]

@@ -5,15 +5,31 @@ def root(request, n1, n2):
     return HttpResponse(n1+n2)
 
 def hi(request, n1, n2):
-    s=n1+n2
+    s = n1+n2
+
     return render(request, 'hi.html', {
-        's':s,
+        's': s,
     })
 
-def r(request, start, stop):
+def r(request, start, stop, n):
+    step = 2
+
     if stop < start:
-        start, stop=stop, start
-    rr=range(start, stop+1)
+        start, stop = stop, start
+
+    if n == 0:
+        if start%2 == 1:
+            start += 1
+
+        rr = range(start, stop+1, step)
+    elif n == 1:
+        if start%2 == 0:
+            start += 1
+
+        rr = range(start, stop+1, step)
+    else:
+        rr = range(start, stop+1)
+
     return render(request, 'a.html', {
         'rr':rr,
     })
