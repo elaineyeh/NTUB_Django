@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from .view import root
 from .view import hi, r
+from .view import tag_test
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hi/<int:n1>/<int:n2>/', hi),
-    path('h/<int:start>/<int:stop>/<int:n>/', r)
+    path('h/<int:start>/<int:stop>/<int:n>/', r),
+    path('tag_test/', tag_test),
 ]
