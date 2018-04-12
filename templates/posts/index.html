@@ -8,11 +8,15 @@
 </head>
 <body>
     <h1>Hello World</h1>
+
+    <br>
+    <a href="{% url 'posts_new' %}">New Posts</a>
+    <br>
+    <br>
     
     {% for post in posts %}
-    <a href="{% url 'posts_show' post.id %}">{{post.id}}</a>| {{ post.title }} - {{post.content}} <br>
+    <a href="{% url 'posts_show' post.id %}">{{post.id}}</a>| {{ post.title }} - {{post.content}}  <a href="{% url 'posts_delete' post.id %}">Delete</a>  <br>
     {% endfor %}
-
     
 </body>
 </html>

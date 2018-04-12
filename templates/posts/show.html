@@ -9,10 +9,14 @@
 <body>
     <h1>#{{ post.id }} - {{ post.title }}</h1>
 
-    {{ post }}
+    <a href="{% url 'posts_edit' post.id %}">Edit</a>
+
+    <br><br>
+
+    {{ post.content }}
 
     <br>
-    <a href="{% url 'posts' %}">Back</a>
+    <a href="{% url 'posts_index' %}">Back</a>
 
 </body>
 </html>
