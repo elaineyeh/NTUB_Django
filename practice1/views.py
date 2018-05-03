@@ -34,7 +34,7 @@ def new(request):
     form = PostModelForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('posts_index')
+        return redirect('posts:index')
 
     return render(request, 'posts/new.html', {
         'form': form
@@ -47,7 +47,7 @@ def edit(request, pk):
 
     if form.is_valid():
         form.save()
-        return redirect('posts_index')
+        return redirect('posts:index')
 
     return render(request, 'posts/edit.html', {
         'form': form
@@ -57,4 +57,4 @@ def delete(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()
 
-    return redirect('posts_index')
+    return redirect('posts:index')

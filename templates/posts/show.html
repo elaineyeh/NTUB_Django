@@ -1,22 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% extends "layout.html" %}   
+
+{% block title %}Posts Edit{% endblock %}
+
+{% block main %}
     <h1>#{{ post.id }} - {{ post.title }}</h1>
 
-    <a href="{% url 'posts_edit' post.id %}">Edit</a>
-
+    <a class="btn btn-outline-secondary" href="{% url 'posts:edit' post.id %}">Edit</a>
     <br><br>
-
     {{ post.content }}
-
     <br>
-    <a href="{% url 'posts_index' %}">Back</a>
-
-</body>
-</html>
+    <a class="btn btn-outline-secondary" href="{% url 'posts:index' %}">Back</a>
+    <br><br>
+{% endblock %}
